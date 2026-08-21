@@ -4,9 +4,10 @@ class GlobalConstants {
   static const String SUCCESS_CODE = "1";
 }
 
-
 class HttpConstants {
   static const String BANNER_LIST = "/home/banner";
   // ignore: constant_identifier_names
   static const String CATEGORY_LIST = "/home/category/head";
+  // ignore: constant_identifier_names
+  static const String PRODUCT_LIST = "/hot/preference";
 }

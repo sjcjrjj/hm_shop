@@ -30,13 +30,18 @@ class _HomeViewState extends State<HomeView> {
     // ),
   ];
   List<CategoryItem> _categoryList = [];
+  SpecialOfferResult _specialOfferResult = SpecialOfferResult(
+    id: "",
+    title: "",
+    subTypes: [],
+  );
   List<Widget> _getScrllChildren () {
     return [
       SliverToBoxAdapter(child:HmSlider(bannerList: _bannerList,)),
       SliverToBoxAdapter(child:SizedBox(height:10)),
       SliverToBoxAdapter(child:HmCategory(categoryList: _categoryList,)),
       SliverToBoxAdapter(child:SizedBox(height:10)),
-      SliverToBoxAdapter(child:HmSuggestion()),
+      SliverToBoxAdapter(child:HmSuggestion(specialOfferResult: _specialOfferResult,)),
       SliverToBoxAdapter(child:SizedBox(height:10)),
       SliverToBoxAdapter(child: 
       Padding(padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
@@ -59,6 +64,7 @@ class _HomeViewState extends State<HomeView> {
     super.initState();
     _getBannerList();
     _getCategoryList();
+    _getProductList();
   }
   void _getBannerList() async{
     _bannerList = await getBannerListAPI();
@@ -66,6 +72,10 @@ class _HomeViewState extends State<HomeView> {
   }
   void _getCategoryList() async{
     _categoryList = await getCategoryListAPI();
+    setState(() {});
+  }
+  void _getProductList() async{
+    _specialOfferResult = await getProductListAPI();
     setState(() {});
   }
   @override
