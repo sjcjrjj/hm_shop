@@ -7,4 +7,6 @@ class GlobalConstants {
 
 class HttpConstants {
   static const String BANNER_LIST = "/home/banner";
+  // ignore: constant_identifier_names
+  static const String CATEGORY_LIST = "/home/category/head";
 }
